@@ -10,11 +10,11 @@
   "background": {
     "service_worker": "background.js"
   },
-  
+
   "commands": {
     "add-blur-mask": {
       "suggested_key": {
-        "default": "Ctrl+Shift+B"
+        "default": "Ctrl+Shift+0"
       },
       "description": "Inject a blur mask"
     }
