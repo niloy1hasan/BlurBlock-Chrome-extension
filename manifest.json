@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "BlurBlock",
+  "version": "1.0",
+  "description": "Drag and place a blur or black mask to block annoying parts of any website.",
+  "permissions": ["scripting", "activeTab"],
+  "action": {
+    "default_title": "Activate BlurBlock"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
