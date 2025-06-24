@@ -55,9 +55,9 @@
     isDragging = false;
   });
 
-   blurMask.addEventListener("contextmenu", function (e) {
+  blurMask.addEventListener("contextmenu", function (e) {
     e.preventDefault();
-    showContextMenu(e.pageX, e.pageY);
+    toggleContextMenu(e.pageX, e.pageY);
   });
 
   // Create custom context menu element
@@ -74,10 +74,10 @@
     fontSize: "14px",
     zIndex: "1000000",
     cursor: "pointer",
-    userSelect: "none"
+    userSelect: "none",
   });
 
-  // Create "Remove Mask" menu item
+  // Remove Mask option
   const removeOption = document.createElement("div");
   removeOption.textContent = "Remove Mask";
   removeOption.addEventListener("click", () => {
@@ -88,18 +88,20 @@
   contextMenu.appendChild(removeOption);
   document.body.appendChild(contextMenu);
 
-  // Function to show the menu at cursor position
-  function showContextMenu(x, y) {
-    contextMenu.style.left = x + "px";
-    contextMenu.style.top = y + "px";
-    contextMenu.style.display = "block";
+  function toggleContextMenu(x, y) {
+    if (contextMenu.style.display === "block") {
+      contextMenu.style.display = "none";
+    } else {
+      contextMenu.style.left = x + "px";
+      contextMenu.style.top = y + "px";
+      contextMenu.style.display = "block";
+    }
   }
 
-  // Hide menu when clicking elsewhere
-  document.addEventListener("click", function (e) {
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
     if (e.target !== contextMenu && e.target !== blurMask) {
       contextMenu.style.display = "none";
     }
   });
-
 })();
