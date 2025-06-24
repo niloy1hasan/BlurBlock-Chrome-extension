@@ -9,5 +9,14 @@
   },
   "background": {
     "service_worker": "background.js"
+  },
+  
+  "commands": {
+    "add-blur-mask": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+B"
+      },
+      "description": "Inject a blur mask"
+    }
   }
 }
